@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/square/square",
+    "pages/publish/publish",
+    "pages/personal/personal"
+  ],
+
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8fd3f4",
+    "navigationBarTitleText": "失物招领",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#8fd3f4",
+    "list": [
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "/images/square.png",
+        "selectedIconPath": "/images/square_active.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "/images/publish.png",
+        "selectedIconPath": "/images/publish_active.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "/images/personal.png",
+        "selectedIconPath": "/images/personal_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+  
+}

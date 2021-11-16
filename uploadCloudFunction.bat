@@ -1,0 +1,1 @@
+"D:\微信开发者工具\微信web开发者工具\cli.bat" cloud functions deploy --e haocloud-xagb6 --n quickstartFunctions --r --project "D:\微信开发者工具\work\多人音视频对话" --report_first --report

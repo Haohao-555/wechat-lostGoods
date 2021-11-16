@@ -1,0 +1,34 @@
+<view class="profile-header">
+	<view class="avatar-url">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+		<open-data type="userNickName" class="nickName"></open-data>
+	</view>
+
+	<view class="nav">
+
+		<view class="nav-item">
+			<navigator class="content" url="/pages/bloghistory/bloghistory" hover-class="none">
+				<i class="iconfont icon-wodefabu"></i>
+				<text class="text">我的发布</text>
+				<i class="iconfont icon-arr-right"></i>
+			</navigator>
+		</view>
+
+		<view class="nav-item">
+			<view class="content">
+         <i class="iconfont icon-xiaochengxuma"></i>
+				<text class="text">小程序码</text>
+				<i class="iconfont icon-arr-right"></i>
+      </view>
+		</view>
+		
+		<view class="nav-item">
+			<view class="content">
+         <i class="iconfont icon-zanshang"></i>
+				<text class="text">赞赏作者</text>
+				<i class="iconfont icon-arr-right"></i>
+      </view>
+		</view>
+		
+</view>
