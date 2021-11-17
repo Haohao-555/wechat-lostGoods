@@ -1,48 +1,34 @@
-<view wx:if="{{!bind}}">
-	<swiper autoplay="true" circular="true" interval="2000" duration="1000">
-		<block wx:for="{{swiperImgUrls}}" wx:key="url">
-			<swiper-item>
-				<image src="{{item.fileId}}" mode="widthFix" class="img"></image>
-			</swiper-item>
-		</block>
-	</swiper>
-	<view class="square">
-		<view>
-			<text class="prompt">本系统仅限本校师生使用，请先绑定学号</text>
-			<view class="bind" bindtap="bind">请先绑定学号</view>
+<view class="container">
+	<view wx:if="{{!bind}}">
+		<swiper autoplay="true" circular="true" interval="2000" duration="1000">
+			<block wx:for="{{swiperImgUrls}}" wx:key="url">
+				<swiper-item>
+					<image src="{{item.fileId}}" mode="widthFix" class="img"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="square">
+			<h-bindinfo bind:handlebind="bind"></h-bindinfo>
 		</view>
 	</view>
-</view>
+	<view wx:if="{{bind}}">
+		<van-sticky>
+			<van-search value="{{ key }}" shape="round" background="#fff" placeholder="请输入搜索关键词" class="search" />
+			<van-tabs active="{{ active }}" title-active-color="#8fd3f4" color="#8fd3f4" animated="true" swipeable>
+				<van-tab title="所有">1</van-tab>
+				<van-tab title="一卡通">2</van-tab>
+				<van-tab title="身份证">3</van-tab>
+				<van-tab title="银行卡">4</van-tab>
+				<van-tab title="手机">5</van-tab>
+				<van-tab title="背包">6</van-tab>
+				<van-tab title="数码">7</van-tab>
+				<van-tab title="书籍">8</van-tab>
+				<van-tab title="其他">9</van-tab>
+			</van-tabs>
+		</van-sticky>
+	</view>
 
-<van-popup show="{{ show }}" position="bottom" custom-style="height: 40%;"  closeable bind:close="onClose">
-	<van-cell-group>
-  <van-field
-    value="{{ value }}"
-    placeholder="请输入用户名"
-   
-    bind:change="onChange"
-  />
-</van-cell-group>
-</van-popup>
-
-<view wx:if="{{bind}}">
-	<van-sticky>
-		<van-search value="{{ key }}" shape="round" background="#fff" placeholder="请输入搜索关键词" class="search" />
-		<van-tabs active="{{ active }}" title-active-color="#8fd3f4" color="#8fd3f4" animated="true" swipeable>
-			<van-tab title="所有">1</van-tab>
-			<van-tab title="一卡通">2</van-tab>
-			<van-tab title="身份证"></van-tab>
-			<van-tab title="银行卡"></van-tab>
-			<van-tab title="手机"></van-tab>
-			<van-tab title="钱包"></van-tab>
-			<van-tab title="手机"></van-tab>
-			<van-tab title="背包"></van-tab>
-			<van-tab title="数码"></van-tab>
-			<van-tab title="书籍"></van-tab>
-			<van-tab title="U盘"></van-tab>
-			<van-tab title="衣物"></van-tab>
-			<van-tab title="其他"></van-tab>
-		</van-tabs>
-	</van-sticky>
-
+	<van-popup show="{{ show }}" position="bottom" custom-style="height: 44%;"  closeable bind:close="onClose">
+		<h-bindform bind:res="bindId"></h-bindform>
+	</van-popup>
 </view>

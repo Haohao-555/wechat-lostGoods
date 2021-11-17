@@ -1,0 +1,5 @@
+<div class="form">
+	<input type="text" placeholder="请输入学号" model:value="{{stuId}}" style="margin-top: 90rpx;"/>
+	<input type="password" placeholder="请输入密码" model:value="{{pwd}}" />
+	<button class="btn" bindtap="binId">绑定信息</button>
+</div>

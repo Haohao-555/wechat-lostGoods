@@ -4,19 +4,6 @@
    text-align: center;
    padding-top: 120rpx;
 }
-.prompt {
-    color: #818d8d; 
-    font-size: 24rpx;
-}
-.bind {
-  width: 300rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  margin: 60rpx auto;
-  background-color: #8fd3f4;
-  border-radius: 12px;
-  font-size: 30rpx;
-  color: #ffffff;
-}
+
+
 

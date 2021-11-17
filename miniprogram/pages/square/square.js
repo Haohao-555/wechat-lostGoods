@@ -1,6 +1,7 @@
 // pages/square/square.js
 const db = wx.cloud.database()
 let App = getApp()
+
 Page({
 
   /**
@@ -8,34 +9,47 @@ Page({
    */
   data: {
     swiperImgUrls: [],
-    bind: App.globalData.bind,
+    bind: false,
     key: "",
     active: 0,
     show: false,
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     this.getSwiper();
+    this.getSwiper();
+   
+  },
+  onClose() {
+     this.setData({
+        show: false
+     })
   },
   getSwiper() {
-    db.collection('lost-swiper').get().then((res)=>{
+    db.collection('lost-swiper').get().then((res) => {
       this.setData({
         swiperImgUrls: res.data
       })
     })
   },
+
   bind() {
-      this.setData({
-        show: true
-      })
+    this.setData({
+      show: true
+    })
   },
-  onClose() {
-    console.log("text")
+  close() {
     this.setData({
       show: false
+    })
+  },
+  bindId(event) {
+    this.setData({
+      bind: event.detail.bind,
+      show: event.detail.show
     })
   },
   /**
@@ -49,7 +63,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: App.globalData.userInfo,
+      bind: App.globalData.bind
+    })
   },
 
   /**

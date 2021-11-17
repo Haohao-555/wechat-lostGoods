@@ -1,0 +1,18 @@
+/* components/bindInfo/bindInfo.wxss */
+.prompt {
+  color: #818d8d;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.bind {
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 60rpx auto;
+  background-color: #8fd3f4;
+  border-radius: 12px;
+  font-size: 30rpx;
+  color: #ffffff;
+}

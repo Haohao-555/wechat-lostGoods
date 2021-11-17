@@ -6,10 +6,30 @@
 	</view>
 
 	<view class="nav">
-
 		<view class="nav-item">
 			<navigator class="content" url="/pages/bloghistory/bloghistory" hover-class="none">
-				<i class="iconfont icon-wodefabu"></i>
+				<i class="iconfont icon-baobaoxingming"></i>
+				<text class="text">姓名：{{userInfo.userName}}</text>
+				<i class="iconfont icon-arr-right"></i>
+			</navigator>
+		</view>
+		<view class="nav-item">
+			<navigator class="content" url="/pages/bloghistory/bloghistory" hover-class="none">
+				<i class="iconfont icon-zhaoxueyuan"></i>
+				<text class="text">学院：{{userInfo.college}}</text>
+				<i class="iconfont icon-arr-right"></i>
+			</navigator>
+		</view>
+		<view class="nav-item">
+			<navigator class="content" url="/pages/bloghistory/bloghistory" hover-class="none">
+				<i class="iconfont icon-zhuanye"></i>
+				<text class="text">专业：{{userInfo.majoy}}</text>
+				<i class="iconfont icon-arr-right"></i>
+			</navigator>
+		</view>
+		<view class="nav-item">
+			<navigator class="content" url="/pages/bloghistory/bloghistory" hover-class="none">
+				<i class="iconfont icon-fabu--"></i>
 				<text class="text">我的发布</text>
 				<i class="iconfont icon-arr-right"></i>
 			</navigator>
@@ -17,7 +37,7 @@
 
 		<view class="nav-item">
 			<view class="content">
-         <i class="iconfont icon-xiaochengxuma"></i>
+         <i class="iconfont icon-xiaochengxumaguanli"></i>
 				<text class="text">小程序码</text>
 				<i class="iconfont icon-arr-right"></i>
       </view>
@@ -25,7 +45,7 @@
 		
 		<view class="nav-item">
 			<view class="content">
-         <i class="iconfont icon-zanshang"></i>
+         <i class="iconfont icon-zanshangjin"></i>
 				<text class="text">赞赏作者</text>
 				<i class="iconfont icon-arr-right"></i>
       </view>

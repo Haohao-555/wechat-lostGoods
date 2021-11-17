@@ -13,9 +13,19 @@ App({
         traceUser: true,
       });
     }
-
+    this.init();
     this.globalData = {
-        bind: true
+      bind: false,
+      userInfo: {}
     };
   },
+  init() {
+    wx.getStorage({
+      key: "userInfo",
+      success: (res) => {
+        this.globalData.userInfo = JSON.parse(res.data)
+        this.globalData.bind = true
+      }
+    })
+  }
 });

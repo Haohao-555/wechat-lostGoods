@@ -1,0 +1,18 @@
+input {
+  width: 600rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+  border: 1rpx solid #8fd3f4;
+  border-radius: 12px;
+}
+
+.btn {
+  width: 300rpx;
+  margin: 0 auto;
+  background-color: #8fd3f4;
+  color: #fff;
+  border-radius: 40rpx;
+}

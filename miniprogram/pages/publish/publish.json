@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "h-bindinfo": "../../components/bind-info/bind-info",
+    "h-bindform": "../../components/bind-form/bind-form",
+    "van-popup": "@vant/weapp/popup/index"
+  },
+  "navigationBarTitleText": "发布"
 }

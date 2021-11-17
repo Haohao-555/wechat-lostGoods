@@ -1,2 +1,39 @@
-<!--pages/publish/publish.wxml-->
-<text>pages/publish/publish.wxml</text>
+<view class="container">
+  <view class="bind"  wx:if="{{!bind}}">
+    <h-bindinfo bind:handlebind="bind"></h-bindinfo>
+    <van-popup show="{{ show }}" position="bottom" custom-style="height: 44%;"  closeable bind:close="onClose">
+		   <h-bindform bind:res="bindId"></h-bindform>
+	  </van-popup>
+  </view>
+  <view wx:if="{{bind}}">
+    <textarea class="content" placeholder="请描述您的物品" bindinput="onInput" maxlength="140" auto-focus bindfocus="onFocus"
+      bindblur="onBlur"></textarea>
+    <!-- 图片 -->
+    <view class="image-list">
+      <!-- 显示图片 -->
+      <block wx:for="{{image}}" wx:key="*this">
+        <view class="image-wrap">
+          <image class="image" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgsrc="{{item}}"></image>
+          <!-- 删除图标 -->
+          <i class="iconfont icon-shanchu" bindtap="OnDelimage" data-index="{{index}}"></i>
+        </view>
+      </block>
+      <!-- 选择图片 -->
+      <view class="image-wrap selectphoto" hidden="{{!selectphoto}}" bindtap="obChooseImage">
+        <i class="iconfont icon-jiahao"></i>
+      </view>
+    </view>
+    <!-- 位置 -->
+    <view class="weiziitem" bindtap="chooseLocation">
+      <!-- <text class="text"></text> -->
+      <i class="iconfont icon-weizhi-tianchong {{showweizi? 'showweizi':''}}"></i>
+      <view class="weizi {{showweizi? 'showweizi':''}}">{{weizi}}</view>
+    </view>
+    <view class="footer" style="bottom:{{footerBottom}}px">
+      <text class="words-num">{{wordsNum}}</text>
+      <button class="send-btn" bindtap="send">发布</button>
+    </view>
+
+  </view>
+
+</view>
