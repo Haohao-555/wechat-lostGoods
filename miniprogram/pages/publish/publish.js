@@ -20,36 +20,26 @@ Page({
     footerBottom: 0,//发布位置是否改变高度
     image: [],//保存图片
     selectphoto: true,//添加图片元素是否出现 true出现
-    weizi:'所在位置',
-    showweizi:false,
+    weizi: '所在位置',
+    showweizi: false,
     show: false
   },
-  bind() {
-    this.setData({
-      show: true
-    })
-  },
-  onClose() {
-    this.setData({
-       show: false
-    })
- },
-  bindId(event) {
-    this.setData({
-      bind: event.detail.bind,
-      show: event.detail.show
-    })
-    wx.getStorage({
-      key: "userInfo",
-      success: (res) => {
-        this.setData({
-          userInfo: JSON.parse(res.data)
-        })
-      }
-    })
-  },
-  //发布博客
+
+  //发布
   send() {
+    if (wx.getUserProfile) {
+      wx.getUserProfile({
+        desc: '用于完善个人信息',
+        success: (res) => {
+          this.onLoginsuccess({
+            detail: res.userInfo
+          })
+        },
+      })
+    }
+  },
+  onLoginsuccess(detail) {
+    console.log(detail.detail);
     //步骤一：上传图片到云存储
     if (content.trim() === '') {//内容为空
       wx.showModal({
@@ -88,11 +78,11 @@ Page({
     Promise.all(promiseArr).then((res) => {
       db.collection('lost').add({
         data: {
-          ...this.data.userInfo,//用户全部信息
+          ...detail.detail,
           longitude,
           latitude,
           content,//文本内容
-          address:this.data.weizi,
+          address: this.data.weizi,
           img: fileIds,
           createTime: db.serverDate(),//服务端时间
         }
@@ -188,19 +178,44 @@ Page({
         longitude = res.longitude
         latitude = res.latitude
         this.setData({
-          weizi:res.name,
-          showweizi:true,
+          weizi: res.name,
+          showweizi: true,
         })
       })
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    
+
   },
 
+  bind() {
+    this.setData({
+      show: true
+    })
+  },
+  onClose() {
+    this.setData({
+      show: false
+    })
+  },
+  bindId(event) {
+    this.setData({
+      bind: event.detail.bind,
+      show: event.detail.show
+    })
+    wx.getStorage({
+      key: "userInfo",
+      success: (res) => {
+        this.setData({
+          userInfo: JSON.parse(res.data)
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

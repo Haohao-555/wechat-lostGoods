@@ -13,9 +13,17 @@
 	</view>
 	<view wx:if="{{bind}}">
 		<van-sticky>
-			<van-search value="{{ key }}" shape="round" background="#fff" placeholder="请输入搜索关键词" class="search" />
+			<van-search value="{{ key }}" shape="round" background="#f1f1f1" placeholder="请输入搜索关键词" class="search" />
 			<van-tabs active="{{ active }}" title-active-color="#8fd3f4" color="#8fd3f4" animated="true" swipeable>
-				<van-tab title="所有">1</van-tab>
+				<van-tab title="所有">
+					<view class="card-list" hidden="{{hideList}}">
+						<block wx:for="{{cardList}}" wx:key="_id">
+							<view class="card-panel">
+								<h-card card="{{item}}" bindtap="goComment" data-blogId="{{item._id}}" />
+							</view>
+						</block>
+					</view>
+				</van-tab>
 				<van-tab title="一卡通">2</van-tab>
 				<van-tab title="身份证">3</van-tab>
 				<van-tab title="银行卡">4</van-tab>
@@ -28,7 +36,7 @@
 		</van-sticky>
 	</view>
 
-	<van-popup show="{{ show }}" position="bottom" custom-style="height: 44%;"  closeable bind:close="onClose">
+	<van-popup show="{{ show }}" position="bottom" custom-style="height: 44%;" closeable bind:close="onClose">
 		<h-bindform bind:res="bindId"></h-bindform>
 	</van-popup>
 </view>

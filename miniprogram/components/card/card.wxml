@@ -1,0 +1,23 @@
+<view class="card">
+<view class="card-title">
+  <image class="card-portrait" src="{{card.avatarUrl}}"></image>
+  <view class="card-box">
+    <view class="card-nickName">{{card.nickName}}</view>
+    <view class="card-time">{{_createTime}}</view>
+  </view>
+</view>
+<!-- 内容 -->
+<view class="card-content">{{card.content}}</view>
+<!-- 图片 -->
+<view class="card-img">
+  <block wx:for="{{card.img}}" wx:key="index">
+    <image class="img" src="{{item}}" mode="aspectFill" catchtap="onPreviewImage" data-imgsrc="{{item}}" data-imgs="{{card.img}}"></image>
+  </block>
+</view>
+<!-- 位置 -->
+<view catchtap="openLocation" class="address"hidden="{{showicon}}">
+     <i class="iconfont icon-position" ></i>
+     <text class="text">{{card.address}}</text>
+</view>
+
+</view>

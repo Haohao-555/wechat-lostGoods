@@ -13,7 +13,9 @@ Page({
     key: "",
     active: 0,
     show: false,
-    userInfo: {}
+    userInfo: {},
+    cardList: [],
+    hideList: false
   },
 
   /**
@@ -21,12 +23,7 @@ Page({
    */
   onLoad: function (options) {
     this.getSwiper();
-   
-  },
-  onClose() {
-     this.setData({
-        show: false
-     })
+    this.loadlostList();
   },
   getSwiper() {
     db.collection('lost-swiper').get().then((res) => {
@@ -35,7 +32,47 @@ Page({
       })
     })
   },
+  loadlostList(start = 0) {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.cloud.callFunction({
+      name: 'card',
+      data: {
+        keyword: this.data.key,
+        start,
+        $url: 'list',
+        count: 10,
+      }
+    }).then((res) => {
+      this.setData({
+        cardList: this.data.cardList.concat(res.result)
+      })
+      //判断是否为空
+      if (this.data.cardList.length != 0) {
+        this.setData({
+          hideList: false,
+          showcontent: true,
+        })
 
+      } else {
+        this.setData({
+          hideList: true,
+          showcontent: false,
+        })
+      }
+
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+
+
+  onClose() {
+    this.setData({
+      show: false
+    })
+  },
   bind() {
     this.setData({
       show: true

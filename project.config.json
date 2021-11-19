@@ -40,8 +40,8 @@
     "useCompilerPlugins": false
   },
   "appid": "wx5eac8c99f6d77821",
-  "projectname": "miniprogram-1",
-  "libVersion": "2.14.1",
+  "projectname": "%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86APP",
+  "libVersion": "2.19.6",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "packNpmManually": true,
   "packNpmRelationList": [

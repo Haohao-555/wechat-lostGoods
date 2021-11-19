@@ -6,6 +6,7 @@
     "van-sticky": "@vant/weapp/sticky/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "h-card": "../../components/card/card"
   }
 }
